@@ -1,5 +1,6 @@
 <!--
-Copyright © 2026 Gornskew Enterprises
+Copyright © 2026 Genworks International
+Portions Copyright © 2026 Gornskew Enterprises
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -8,39 +9,31 @@ License, or (at your option) any later version.  Distributed WITHOUT
 ANY WARRANTY; see <https://www.gnu.org/licenses/agpl-3.0.html>.
 -->
 
-# Cyborg Whisperer: a Protocol Officer for Lisp-Speaking Crews
+# Lisply MCP: Model Context Protocol Middleware for Lisp-Based and Lisp-Like Environments
 
 <img src="scripts/robot-lambda.png" alt="Robot with Lambda machine"
 width="300">
 
-Aboard a [Basilisk](https://github.com/gornskew/basilisk)-class
-vessel, no cyborg wanders. Every visit — however it beams aboard — is
-bound for a particular crew member, and every visit begins the same
-way: with the **Protocol Officer**. He receives each arriving cyborg,
-interviews it, schools it in the ship's ways, and dispatches it to
-the crew member it came to see.
-
-Cyborg Whisperer is the kit for that post — the species, if you like,
-of which every Protocol Officer is a member. Post one beside any crew
-member who answers the _Lisply_ dialect, aboard ship or ashore, and
-arriving cyborgs find themselves received, educated, and set to
-useful work.
-
-Plainly: this project is a [Model Context Protocol
+This project is a [Model Context Protocol
 (MCP)](https://modelcontextprotocol.org) middleware that enables
 [Large Language Models
-(LLMs)](https://en.wikipedia.org/wiki/Large_language_model) — the
-cyborgs — to interact with [Lisp-based](https://common-lisp.net/)
-development and runtime environments — the crew — using a lightweight
-protocol called _Lisply_.
+(LLMs)](https://en.wikipedia.org/wiki/Large_language_model) to
+interact with [Lisp-based](https://common-lisp.net/) development and
+runtime environments using a lightweight protocol called _Lisply_.
 
-**Note: This kit does not start or manage containers.** It is a pure
-HTTP client to an already-running Lisply backend. Container lifecycle
-is owned by docker compose — see "Running it" in the [Basilisk
-README](https://github.com/gornskew/basilisk) — or run your own
-Lisply backend directly on a host and point the wrapper at its
-host/port. Once a backend is running, Claude Desktop connects to it
-according to the example configurations below.
+Lisply-MCP is the Genworks-maintained fork of [Cyborg
+Whisperer](https://github.com/gornskew/cyborg-whisperer). It keeps
+the project's original `lisply-mcp` name, which remains the wrapper's
+default server name and the basis of its runtime defaults in both
+distributions.
+
+**Note: This middleware does not start or manage containers.** It is
+a pure HTTP client to an already-running Lisply backend. Container
+lifecycle is owned by docker compose — see "Starting a deployment" in
+the [Basalt README](https://gitlab.genworks.com/genworks/basalt) — or
+run your own Lisply backend directly on a host and point the wrapper
+at its host/port. Once a backend is running, Claude Desktop connects
+to it according to the example configurations below.
 
 ## Who Is this Meant For?
 
@@ -53,7 +46,7 @@ according to the example configurations below.
 
 ## What Is it Meant to Do?
 
-The Cyborg Whisperer middleware connects
+The Lisply-MCP middleware connects
 [MCP-capable](https://modelcontextprotocol.org) AI Agent programs, or
 _MCP Clients_, such as
 [ClaudeDesktop](https://www.anthropic.com/claude), to Lisp-based
@@ -61,8 +54,8 @@ systems which support a REPL, or Read-Eval-Print Loop. The connection
 is meant to facilitate AI-assisted symbolic programming sometimes
 referred to as _Neuro-Symbolic Programming_. We have coined the term
 "Lisply" to refer to a lightweight protocol which most any Lisp-like
-system can implement so that its resident may stand with a Protocol
-Officer of his own.
+system can implement to render it compatible with this Lisply-MCP
+middleware.
 
 The idea is that the LLM will be able to generate and evaluate
 arbitrary Lisp expressions, including creating, compiling, loading,
@@ -91,12 +84,13 @@ text with `SANDBOX_NOTE` if needed.
 
 ## Extra Quick Start
 
-Follow "Running it" in the [Basilisk
-README](https://github.com/gornskew/basilisk) — `git clone` the yard,
-then `./basilisk up`.
+Follow "Starting a deployment" in the [Basalt
+README](https://gitlab.genworks.com/genworks/basalt) — `git clone`
+the repository, then `./basalt up`.
 
 This will get you a Docker Compose setup including a preconfigured
-containerized Protocol Officer already at his post beside the Captain.
+containerized instance of Lisply-MCP, already connected to the
+deployment's console.
 
 
 ## Quick Start
@@ -112,12 +106,12 @@ background and detailed configuration options.
    installed directly in Windows or in WSL.
 
 2. Have a running Lisply backend to connect to. The easiest way is
-   the docker compose stack from the [Basilisk
-   README](https://github.com/gornskew/basilisk) (requires
+   the docker compose stack from the [Basalt
+   README](https://gitlab.genworks.com/genworks/basalt) (requires
    [Docker](https://docs.docker.com/engine/install/)); alternatively,
    run any Lisply-compliant backend directly on your host.
 
-3. Clone this `cyborg-whisperer` repository to a location where your
+3. Clone this `lisply-mcp` repository to a location where your
    MCP-capable AI Agent (e.g. Claude Desktop) can access it.
    
  
@@ -146,7 +140,7 @@ to the `./scripts/mcp-wrapper.js` file from the cloned repo:
     "gendl-ccl": {
       "command": "node",
       "args": [
-        "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
+        "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
         "--server-name", "gendl-ccl",
         "--http-port", "9080"
       ]
@@ -154,16 +148,16 @@ to the `./scripts/mcp-wrapper.js` file from the cloned repo:
     "gendl-sbcl": {
       "command": "node",
       "args": [
-        "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
+        "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
         "--server-name", "gendl-sbcl",
         "--http-port", "9090"
       ]
     },
-    "readymax": {
+    "readymacs": {
       "command": "node",
       "args": [
-        "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
-        "--server-name", "readymax",
+        "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
+        "--server-name", "readymacs",
         "--http-port", "7080"
       ]
     }
@@ -182,7 +176,7 @@ Windows host):
     "gendl-ccl": {
       "command": "wsl",
       "args": [
-        "node", "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
+        "node", "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
         "--server-name", "gendl-ccl",
         "--http-port", "9080"
       ]
@@ -190,16 +184,16 @@ Windows host):
     "gendl-sbcl": {
       "command": "wsl",
       "args": [
-        "node", "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
+        "node", "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
         "--server-name", "gendl-sbcl",
         "--http-port", "9090"
       ]
     },
-    "readymax": {
+    "readymacs": {
       "command": "wsl",
       "args": [
-        "node", "/path/to/cloned/cyborg-whisperer/scripts/mcp-wrapper.js",
-        "--server-name", "readymax",
+        "node", "/path/to/cloned/lisply-mcp/scripts/mcp-wrapper.js",
+        "--server-name", "readymacs",
         "--http-port", "7080"
       ]
     }
@@ -211,8 +205,8 @@ Windows host):
 See the main Contents below for further configuration options, for
 example how to specify an alternative Lisply backend service
 host/port. (Sharing/mounting host directories into containerized
-backends is configured in the docker compose setup, e.g. Basilisk's
-`./basilisk`, not by this wrapper.)
+backends is configured in the docker compose setup, e.g. Basalt's
+`./basalt`, not by this wrapper.)
 
 
 Each server operates independently, allowing you to work with multiple
@@ -244,18 +238,19 @@ proceeding.
 The minimal default configuration described in the Quick Start above
 connects to an already-running
 [Gendl](https://gitlab.common-lisp.net/gendl/gendl) backend (for
-example from a Basilisk stack), a Common Lisp
+example from a Basalt deployment), a Common Lisp
 superset sporting a standard REPL (Read-Eval-Print Loop). The wrapper
 itself never pulls or starts containers. Note a second Lisply backend implementation
 for Emacs lisp also exists, within the
-[Readymax](https://github.com/gornskew/readymax/tree/devo/dot-files/emacs.d/sideloaded/lisply-backend)
-project (the ready room whose resident is the Captain).
+[Readymacs](https://gitlab.genworks.com/genworks/readymacs/-/tree/devo/dot-files/emacs.d/sideloaded/lisply-backend)
+project (the Emacs distribution that runs a Basalt deployment's
+console).
 
 
 
 ## System Overview
 
-The Cyborg Whisperer middleware is implemented as a Javascript program meant
+The Lisply-MCP middleware is implemented as a Javascript program meant
 to run in Node.js, and provides a bridge between your AI Agent and any
 [compliant Lisply backend system](BACKEND-REQS.md). This wrapper
 enables the AI Agent to:
@@ -283,7 +278,7 @@ flowchart TB
     User <-.-> Emacs("Emacs Text Editor (Optional)")
 
     Claude <--> MCP("MCP Protocol")
-    MCP <--> Wrapper("Cyborg Whisperer (Node.js MCP Wrapper)")
+    MCP <--> Wrapper("Lisply MCP (Node.js MCP Wrapper)")
 
     Wrapper --> LisplyHttp("Lisply HTTP Server")
     
@@ -322,7 +317,7 @@ The middleware handles:
 
 ## Security Considerations
 
-Because Cyborg Whisperer allows arbitrary Lisp code to be evaluated against
+Because Lisply-MCP allows arbitrary Lisp code to be evaluated against
 a running Lisp-based backend, there are certain risks in case the LLM
 were to go "haywire." Therefore, best practices are:
 
@@ -355,7 +350,7 @@ were to go "haywire." Therefore, best practices are:
   - **ping.js**: Ping handler
   - **lispEval.js**: Lisp evaluation handler
   - **skewedSearch.js**: Document-corpus search handler (backends
-    that advertise it, e.g. Readymax rooms)
+    that advertise it, e.g. the Readymacs console)
 - **mcp-wrapper.js**: <--- Main entry point  <---
 
 
@@ -364,12 +359,12 @@ were to go "haywire." Therefore, best practices are:
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/gornskew/cyborg-whisperer.git
+git clone https://gitlab.genworks.com/genworks/lisply-mcp.git
 ```
 
 2. Install the required dependencies (optional, as the wrapper auto-installs dependencies):
 ```bash
-cd cyborg-whisperer/scripts
+cd lisply-mcp/scripts
 npm install # optional - the script will attempt to do this also if needed
 chmod +x mcp-wrapper.js # needed on some systems
 ```
@@ -445,12 +440,12 @@ The wrapper is now a pure HTTP client: it connects to whatever Lisply
 backend is already listening at the configured host and port, and
 reports a helpful error (with a compose hint) when nothing is there.
 
-For a containerized backend stack (Gendl, Readymax, etc.), use
-Basilisk, the compose framework at
-`gitlab.genworks.com:gornskew/basilisk` (`./basilisk up`),
+For a containerized backend stack (Gendl, Readymacs, etc.), use
+Basalt, the compose framework at
+`gitlab.genworks.com:genworks/basalt` (`./basalt up`),
 which owns image selection, volume mounting, port publishing, and UID
 mapping. For a non-containerized backend, start any Lisply-compliant
-server yourself (e.g. the host-Emacs path described in readymax
+server yourself (e.g. the host-Emacs path described in readymacs
 `docs/HOST_EMACS_MCP.md`) and point the wrapper at its host and port.
 
 ## Communication
@@ -517,7 +512,7 @@ backend are configured in the compose setup, not by this wrapper.)
       "command": "wsl",
       "args": [
         "node",
-        "/home/user/projects/cyborg-whisperer/scripts/mcp-wrapper.js",
+        "/home/user/projects/lisply-mcp/scripts/mcp-wrapper.js",
         "--server-name", "gendl"
       ]
     }
@@ -629,7 +624,7 @@ If the wrapper reports it cannot reach the backend:
 
 1. For the containerized stack, make sure the compose services are up:
 ```bash
-cd ~/projects/basilisk && ./basilisk up
+cd ~/projects/basalt && ./basalt up
 ```
 
 2. Check whether anything is listening on the expected port:
@@ -678,8 +673,8 @@ M-x slime-connect  ;; from emacs
 ```
 
 Note that setting up the
-[Readymax](https://github.com/gornskew/readymax) configuration
-will enable `M-x slime-connect` in your emacs.
+[Readymacs](https://gitlab.genworks.com/genworks/readymacs)
+configuration will enable `M-x slime-connect` in your emacs.
 
 #### Permission Issues
 
@@ -702,7 +697,7 @@ tail -f /tmp/lisply-mcp-wrapper.log
 
 2. Check backend container logs (for the compose stack):
 ```bash
-cd ~/projects/basilisk && ./basilisk logs
+cd ~/projects/basalt && ./basalt logs
 ```
 
 3. Check Lisply service status:

@@ -1,24 +1,23 @@
-# Cyborg Whisperer — agent guidance
+# Lisply MCP — agent guidance
 
 This file guides Claude Code (claude.ai/code) or other AI agents
-working in this repo.  It is deliberately mixed-register: lore nouns
-are bound to their referents at first use, then used freely;
-commands, identifiers, and warnings never take the voice.
+working in this repo.
 
 ## What this repo is
 
-The upstream home of the Cyborg Whisperer: a Node.js MCP middleware
-(the kit whose running instance is a **Protocol Officer** — the crew
-member who receives arriving AI agents, schools them in the ship's
-ways, and dispatches them to the resident they came to see).  It
+The Genworks-maintained fork of [Cyborg
+Whisperer](https://github.com/gornskew/cyborg-whisperer) (remote
+`upstream` in a working clone): a Node.js MCP middleware that
 presents MCP tools (`lisp_eval`, `http_request`, `ping_lisp`, and
 `skewed_search` where the backend carries a document corpus) to any
 MCP client and relays them over HTTP to a Lisply-compliant backend.
 
-Renamed from `lisply-mcp` on 2026-08-28; git history and some
-runtime defaults still carry the elder name (see Compatibility
-below).  The protocol itself is and remains **Lisply** — that name
-did not change.
+This fork keeps the project's original name, `lisply-mcp`, which is
+also the wrapper's default server name — here the repository name and
+the runtime defaults agree.  Upstream changes are merged when chosen;
+deliberate divergence is limited to naming, attribution, and
+documentation voice.  Code fixes that apply upstream belong upstream
+first.
 
 ## Layout
 
@@ -33,17 +32,17 @@ did not change.
 ## Working on it
 
 - The wrapper is a **pure HTTP client**: it never pulls, starts, or
-  manages containers.  Container lifecycle belongs to the Basilisk
-  yard (`~/projects/basilisk`, `./basilisk up`).  Do not reintroduce
-  docker plumbing here.
+  manages containers.  Container lifecycle belongs to the Basalt
+  build system (`~/projects/basalt`, `./basalt up`).  Do not
+  reintroduce docker plumbing here.
 - After JS edits: `node --check scripts/mcp-wrapper.js` (and any
   touched lib/handler files).
-- Regression harness, against a live backend (from inside the ship's
-  network the hostnames are room slugs):
+- Regression harness, against a live backend (from inside a
+  deployment's network, substitute the service hostname for the
+  loopback address):
 
 ```bash
-node regression-tests/harness.js --backend-host bridge --http-port 9080
-node regression-tests/harness.js --backend-host ready-room --http-port 7080
+node regression-tests/harness.js --backend-host 127.0.0.1 --http-host-port 9081
 ```
 
 - Quick manual probe of a Lisply backend (default Gendl backend
@@ -62,6 +61,9 @@ a versioned behavior decision, never part of a naming or doc sweep:
 - default log file: `/tmp/lisply-mcp-wrapper.log`
 - the `LISPLY_*` environment-variable prefix
 - the `lisply` endpoint prefix and endpoint names
+
+These same defaults are contracts upstream as well; a merge from
+upstream must never change them.
 
 ## Trust model
 

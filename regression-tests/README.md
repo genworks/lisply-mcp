@@ -2,7 +2,7 @@
 
 ## Overview
 
-`harness.js` is a real, fast regression harness for the cyborg-whisperer
+`harness.js` is a real, fast regression harness for the lisply-mcp
 wrapper. It spawns the wrapper as a child process, speaks MCP JSON-RPC
 to it over stdio (exactly as an MCP client would), and drives:
 initialize -> tools/list -> tools/call for `ping_lisp`, `lisp_eval`
@@ -15,9 +15,9 @@ before a change and diffing after.
 Against a known-running Lisply backend, e.g.:
 
 ```bash
-node regression-tests/harness.js --backend-host bridge --http-port 9080
-node regression-tests/harness.js --backend-host ready-room --http-port 7080
+node regression-tests/harness.js --backend-host 127.0.0.1 --http-host-port 9081  # published Gendl port
 node regression-tests/harness.js --backend-host 127.0.0.1 --http-host-port 7080  # loopback/host path
+# from inside a deployment's network, use the service hostnames with --http-port
 ```
 
 Capture and diff a golden baseline:

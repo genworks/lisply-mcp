@@ -1,12 +1,12 @@
 {
-  "name": "cyborg-whisperer",
+  "name": "lisply-mcp",
   "version": "1.0.0",
-  "description": "Receives, educates, and dispatches AI agents (cyborgs) to Lisply-speaking Lisp backends over MCP",
+  "description": "MCP middleware connecting AI agents to Lisply-compliant Lisp backends over HTTP",
   "main": "mcp-wrapper.js",
   "scripts": {
     "start": "node mcp-wrapper.js"
   },
-  "author": "Gornskew Enterprises",
+  "author": "Genworks International",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
     "commander": "^11.0.0"

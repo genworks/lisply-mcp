@@ -1,8 +1,8 @@
 # Lisp Evaluation Examples with Gendl
 
-The Cyborg Whisperer wrapper provides a `lisp_eval` tool that allows you to
+The Lisply-MCP wrapper provides a `lisp_eval` tool that allows you to
 evaluate Lisp code directly within the backend "Lisply-compliant"
-environment. The default environment configured with cyborg-whisperer is
+environment. The default environment configured with lisply-mcp is
 Gendl. This document provides examples of how to use this default
 Gendl backend.
 
