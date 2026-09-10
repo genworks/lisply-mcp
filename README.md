@@ -21,11 +21,11 @@ This project is a [Model Context Protocol
 interact with [Lisp-based](https://common-lisp.net/) development and
 runtime environments using a lightweight protocol called _Lisply_.
 
-Lisply-MCP is the Genworks-maintained fork of [Cyborg
-Whisperer](https://github.com/gornskew/cyborg-whisperer). It keeps
-the project's original `lisply-mcp` name, which remains the wrapper's
-default server name and the basis of its runtime defaults in both
-distributions.
+Lisply-MCP is how a [Basalt](https://gitlab.genworks.com/genworks/basalt)
+deployment and a [Readymacs](https://gitlab.genworks.com/genworks/readymacs)
+console put the Gendl and GDL engines, and Emacs itself, in front of
+AI agents. The project's name, `lisply-mcp`, is also the wrapper's
+default server name and the basis of its runtime defaults.
 
 **Note: This middleware does not start or manage containers.** It is
 a pure HTTP client to an already-running Lisply backend. Container
@@ -735,9 +735,6 @@ payment gateway are available at
 [royalties.genworks.com](https://royalties.genworks.com).
 
 The full text of the license can be found in the COPYING.txt file in
-this directory. 
-
-## MCP Server Registries
-
-- [MCPHub](https://mcphub.com/mcp-servers/gornskew/lisply-mcp)
+this directory. Provenance and the upstream relationship are recorded
+in [UPSTREAM.md](UPSTREAM.md).
 
