@@ -9,8 +9,9 @@ The Genworks-maintained fork of [Cyborg
 Whisperer](https://github.com/gornskew/cyborg-whisperer) (remote
 `upstream` in a working clone): a Node.js MCP middleware that
 presents MCP tools (`lisp_eval`, `http_request`, `ping_lisp`, and
-`skewed_search` where the backend carries a document corpus) to any
-MCP client and relays them over HTTP to a Lisply-compliant backend.
+`lisply_search` where the backend carries a document corpus -- called
+`skewed_search` until 2026-09-09; the alias was dropped 2026-09-10) to
+any MCP client and relays them over HTTP to a Lisply-compliant backend.
 
 This fork keeps the project's original name, `lisply-mcp`, which is
 also the wrapper's default server name — here the repository name and
@@ -26,6 +27,12 @@ first.
 - `scripts/handlers/` — per-tool request handlers
 - `BACKEND-REQS.md` — the Lisply protocol spec (what a compliant
   backend must implement)
+- `CORPUS.md` — the Lisply corpus: how a project provides its
+  `lisply_search` index (file format, the `lisply.corpus` image
+  label, how a console merges), and `scripts/lisply-index.js`, the
+  reference indexer that writes the format.  Content lives with each
+  project; the format lives here, with the protocol that promises
+  the tool.
 - `regression-tests/harness.js` — stdio JSON-RPC regression harness
 - `attic/` — the retired container-management subsystem, history only
 

@@ -268,7 +268,9 @@ Legitimate reasons for a tool:
   result can achieve.
 - **A different trust or availability boundary.** `ping_lisp` works
   when eval is wedged; a search over a prebuilt index queries a
-  corpus, not the live image.
+  corpus, not the live image.  How a project provides that index --
+  the corpus file, the image label, the merge a console performs --
+  is the Lisply corpus contract, `CORPUS.md` beside this file.
 
 Illegitimate reason: convenience wrappers over things eval already
 does (`make_box`, `load_system`, ...). Each such tool teaches the LLM
