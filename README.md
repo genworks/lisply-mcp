@@ -354,6 +354,9 @@ were to go "haywire." Therefore, best practices are:
   - **httpRequest.js**: HTTP request handler
   - **ping.js**: Ping handler
   - **lispEval.js**: Lisp evaluation handler
+  - **lisply-index.js**: the reference indexer for a Lisply corpus --
+    the `lisply_search` index a project builds and ships in its own
+    image; the contract is [CORPUS.md](CORPUS.md)
   - **lisplySearch.js**: Document-corpus search handler, the
     `lisply_search` tool (backends that advertise it, e.g. Readymax
     rooms)

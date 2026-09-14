@@ -28,6 +28,12 @@ did not change.
 - `scripts/handlers/` — per-tool request handlers
 - `BACKEND-REQS.md` — the Lisply protocol spec (what a compliant
   backend must implement)
+- `CORPUS.md` — the Lisply corpus: how a project provides its
+  `lisply_search` index (file format, the `lisply.corpus` image
+  label, how a console merges), and `scripts/lisply-index.js`, the
+  reference indexer that writes the format.  Content lives with each
+  project; the format lives here, with the protocol that promises
+  the tool.
 - `regression-tests/harness.js` — stdio JSON-RPC regression harness
 - `attic/` — the retired container-management subsystem, history only
 
