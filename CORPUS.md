@@ -121,9 +121,13 @@ every Readymax image carries it as `lisply-index` on the path, so a
 project's CI can also run it from that image:
 
 ```bash
-docker run --rm -v "$PWD:/corpus:ro" -v "$PWD/out:/out" gornskew/readymax:devo-lite \
-  lisply-index --root /corpus --out /out/gendl.sexp
+docker run --rm --entrypoint lisply-index \
+  -v "$PWD:/corpus:ro" -v "$PWD/out:/out" gornskew/readymax:devo-lite \
+  --root /corpus --out /out/gendl.sexp
 ```
+
+(`--entrypoint` matters: the image's own entrypoint starts the console
+and ignores the command.)
 
 Other producers are welcome (the Readymax console has an Emacs Lisp
 one for its own corpus); what makes them conforming is the file they
