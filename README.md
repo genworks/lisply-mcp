@@ -11,7 +11,7 @@ ANY WARRANTY; see <https://www.gnu.org/licenses/agpl-3.0.html>.
 
 # Lisply MCP: Model Context Protocol Middleware for Lisp-Based and Lisp-Like Environments
 
-<img src="scripts/robot-lambda.png" alt="Robot with Lambda machine"
+<img src="img/robot-lambda.png" alt="The Lisply-MCP robot, a lambda on its chest"
 width="300">
 
 This project is a [Model Context Protocol
