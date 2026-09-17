@@ -3,9 +3,11 @@
 Lisply-MCP tracks an upstream project, **Cyborg Whisperer**,
 maintained by Gornskew Enterprises
 (https://github.com/gornskew/cyborg-whisperer), from which it is
-periodically merged. This file is the one place in this repository
-that records the relationship; the product documentation does not
-depend on it.
+periodically merged.  Cyborg Whisperer was formerly published as
+`lisply-mcp` in the Gornskew namespace; the old `gornskew/lisply-mcp`
+address redirects to it, and its README points here. This file is the
+one place in this repository that records the relationship; the
+product documentation does not depend on it.
 
 **Shared with upstream, and kept compatible:** the wrapper, the
 Lisply protocol (`BACKEND-REQS.md`), the default `--server-name`
