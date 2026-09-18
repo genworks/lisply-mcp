@@ -736,7 +736,7 @@ For applications that need to keep their source code closed, Genworks
 has begun offering an "escape clause" from AGPL restrictions for a 5%
 self-reported quarterly revenue royalty. More information and a
 payment gateway are available at
-[royalties.genworks.com](https://royalties.genworks.com).
+[genworks.com/royalties](https://genworks.com/royalties).
 
 The full text of the license can be found in the COPYING.txt file in
 this directory. Provenance and the upstream relationship are recorded
