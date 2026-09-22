@@ -29,20 +29,11 @@ default server name and the basis of its runtime defaults.
 
 **Note: This middleware does not start or manage containers.** It is
 a pure HTTP client to an already-running Lisply backend. Container
-lifecycle is owned by docker compose — see "Starting a deployment" in
-the [Basalt README](https://github.com/genworks/basalt) — or
+lifecycle is owned by docker compose (see "Starting a deployment" in
+the [Basalt README](https://github.com/genworks/basalt)), or
 run your own Lisply backend directly on a host and point the wrapper
 at its host/port. Once a backend is running, Claude Desktop connects
 to it according to the example configurations below.
-
-## Who Is this Meant For?
-
- - AI practitioners curious about Lisp
- - Lisp practitioners curious about AI
- - Anyone interested in Neuro-Symbolic Programming
- - Mechanical/Civil Engineers and Designers interested in CAD
-   Automation and Knowledge Based Engineering
- - Tinkerers, meddlers, and tamperers from all walks of life
 
 ## What Is it Meant to Do?
 
@@ -85,7 +76,7 @@ text with `SANDBOX_NOTE` if needed.
 ## Extra Quick Start
 
 Follow "Starting a deployment" in the [Basalt
-README](https://github.com/genworks/basalt) — `git clone`
+README](https://github.com/genworks/basalt): `git clone`
 the repository, then `./basalt up`.
 
 This will get you a Docker Compose setup including a preconfigured
@@ -614,8 +605,9 @@ Now, let's change the height from 5 to 8:
 ```
 
 This box can be visualized by creating a web interface or using a
-built-in gendl visualization tool such as `geysr`. See [Gendl
-Documentation](https://gornschool.com) for details.
+built-in gendl visualization tool such as `geysr`. See the [Gendl
+reference](https://genworks.com/reference/index.html) and the
+training material at [genworks.dev](https://genworks.dev/) for details.
 
 
 ## Troubleshooting
