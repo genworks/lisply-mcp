@@ -171,7 +171,7 @@ Currently, there are implementations or planned implementations for:
 1. **Gendl**: A full implementation available at [Gendl on GitLab](https://gitlab.common-lisp.net/gendl/gendl)
         with Lisply implementation [here](https://gitlab.common-lisp.net/gendl/gendl/gwl/lisply-backend)
 2. **GNU Emacs Backend**: the Readymacs console's Lisply backend, at
-   [gitlab.genworks.com/genworks/readymacs](https://gitlab.genworks.com/genworks/readymacs),
+   [github.com/genworks/readymacs](https://github.com/genworks/readymacs),
    `dot-files/emacs.d/sideloaded/lisply-backend/`
 
 

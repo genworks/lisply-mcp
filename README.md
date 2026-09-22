@@ -21,8 +21,8 @@ This project is a [Model Context Protocol
 interact with [Lisp-based](https://common-lisp.net/) development and
 runtime environments using a lightweight protocol called _Lisply_.
 
-Lisply-MCP is how a [Basalt](https://gitlab.genworks.com/genworks/basalt)
-deployment and a [Readymacs](https://gitlab.genworks.com/genworks/readymacs)
+Lisply-MCP is how a [Basalt](https://github.com/genworks/basalt)
+deployment and a [Readymacs](https://github.com/genworks/readymacs)
 console put the Gendl and GDL engines, and Emacs itself, in front of
 AI agents. The project's name, `lisply-mcp`, is also the wrapper's
 default server name and the basis of its runtime defaults.
@@ -30,7 +30,7 @@ default server name and the basis of its runtime defaults.
 **Note: This middleware does not start or manage containers.** It is
 a pure HTTP client to an already-running Lisply backend. Container
 lifecycle is owned by docker compose — see "Starting a deployment" in
-the [Basalt README](https://gitlab.genworks.com/genworks/basalt) — or
+the [Basalt README](https://github.com/genworks/basalt) — or
 run your own Lisply backend directly on a host and point the wrapper
 at its host/port. Once a backend is running, Claude Desktop connects
 to it according to the example configurations below.
@@ -85,7 +85,7 @@ text with `SANDBOX_NOTE` if needed.
 ## Extra Quick Start
 
 Follow "Starting a deployment" in the [Basalt
-README](https://gitlab.genworks.com/genworks/basalt) — `git clone`
+README](https://github.com/genworks/basalt) — `git clone`
 the repository, then `./basalt up`.
 
 This will get you a Docker Compose setup including a preconfigured
@@ -107,7 +107,7 @@ background and detailed configuration options.
 
 2. Have a running Lisply backend to connect to. The easiest way is
    the docker compose stack from the [Basalt
-   README](https://gitlab.genworks.com/genworks/basalt) (requires
+   README](https://github.com/genworks/basalt) (requires
    [Docker](https://docs.docker.com/engine/install/)); alternatively,
    run any Lisply-compliant backend directly on your host.
 
@@ -242,7 +242,7 @@ example from a Basalt deployment), a Common Lisp
 superset sporting a standard REPL (Read-Eval-Print Loop). The wrapper
 itself never pulls or starts containers. Note a second Lisply backend implementation
 for Emacs lisp also exists, within the
-[Readymacs](https://gitlab.genworks.com/genworks/readymacs/-/tree/devo/dot-files/emacs.d/sideloaded/lisply-backend)
+[Readymacs](https://github.com/genworks/readymacs/tree/devo/dot-files/emacs.d/sideloaded/lisply-backend)
 project (the Emacs distribution that runs a Basalt deployment's
 console).
 
@@ -363,7 +363,7 @@ were to go "haywire." Therefore, best practices are:
 
 1. Clone this repository:
 ```bash
-git clone https://gitlab.genworks.com/genworks/lisply-mcp.git
+git clone https://github.com/genworks/lisply-mcp.git
 ```
 
 2. Install the required dependencies (optional, as the wrapper auto-installs dependencies):
@@ -446,7 +446,7 @@ reports a helpful error (with a compose hint) when nothing is there.
 
 For a containerized backend stack (Gendl, Readymacs, etc.), use
 Basalt, the compose framework at
-`gitlab.genworks.com:genworks/basalt` (`./basalt up`),
+`github.com/genworks/basalt` (`./basalt up`),
 which owns image selection, volume mounting, port publishing, and UID
 mapping. For a non-containerized backend, start any Lisply-compliant
 server yourself (e.g. the host-Emacs path described in readymacs
@@ -677,7 +677,7 @@ M-x slime-connect  ;; from emacs
 ```
 
 Note that setting up the
-[Readymacs](https://gitlab.genworks.com/genworks/readymacs)
+[Readymacs](https://github.com/genworks/readymacs)
 configuration will enable `M-x slime-connect` in your emacs.
 
 #### Permission Issues
